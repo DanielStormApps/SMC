@@ -3,7 +3,7 @@
 //  smc
 //
 //  Created by Daniel Storm on 6/30/19.
-//  Copyright © 2019 Daniel Storm. All rights reserved.
+//  Copyright © 2019 Daniel Storm (github.com/DanielStormApps).
 //
 
 import Foundation

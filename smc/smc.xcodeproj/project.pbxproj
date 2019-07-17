@@ -13,6 +13,12 @@
 		8430D0E022C93F0800318749 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8430D0DB22C93F0800318749 /* AppDelegate.swift */; };
 		8430D0E422C9469500318749 /* SMCStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8430D0E322C9469500318749 /* SMCStructure.swift */; };
 		8430D0E622C94A1100318749 /* SMC+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8430D0E522C94A1100318749 /* SMC+Extensions.swift */; };
+		8481CDC222DF72F700E4C087 /* SMC+CPU.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8481CDC122DF72F700E4C087 /* SMC+CPU.swift */; };
+		8481CDC422DF731500E4C087 /* SMC+Fans.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8481CDC322DF731500E4C087 /* SMC+Fans.swift */; };
+		8481CDC722DFBD6300E4C087 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8481CDC622DFBD6300E4C087 /* Device.swift */; };
+		8481CDC922DFC8F000E4C087 /* Temperature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8481CDC822DFC8F000E4C087 /* Temperature.swift */; };
+		8481CDCB22DFC91600E4C087 /* SMC+GPU.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8481CDCA22DFC91600E4C087 /* SMC+GPU.swift */; };
+		8481CDCD22DFCCFA00E4C087 /* SMC+Sensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8481CDCC22DFCCFA00E4C087 /* SMC+Sensor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +31,14 @@
 		8430D0DC22C93F0800318749 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8430D0E322C9469500318749 /* SMCStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMCStructure.swift; sourceTree = "<group>"; };
 		8430D0E522C94A1100318749 /* SMC+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SMC+Extensions.swift"; sourceTree = "<group>"; };
+		8481CDC122DF72F700E4C087 /* SMC+CPU.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SMC+CPU.swift"; sourceTree = "<group>"; };
+		8481CDC322DF731500E4C087 /* SMC+Fans.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SMC+Fans.swift"; sourceTree = "<group>"; };
+		8481CDC622DFBD6300E4C087 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
+		8481CDC822DFC8F000E4C087 /* Temperature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temperature.swift; sourceTree = "<group>"; };
+		8481CDCA22DFC91600E4C087 /* SMC+GPU.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SMC+GPU.swift"; sourceTree = "<group>"; };
+		8481CDCC22DFCCFA00E4C087 /* SMC+Sensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SMC+Sensor.swift"; sourceTree = "<group>"; };
+		8481CDCE22DFD9BF00E4C087 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		8481CDCF22DFD9C700E4C087 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +55,8 @@
 		8430D0B922C93DF900318749 = {
 			isa = PBXGroup;
 			children = (
+				8481CDCE22DFD9BF00E4C087 /* README.md */,
+				8481CDCF22DFD9C700E4C087 /* LICENSE */,
 				8430D0E222C93F1600318749 /* SMC */,
 				8430D0D522C93F0800318749 /* smc-project */,
 				8430D0C322C93DF900318749 /* Products */,
@@ -71,8 +87,14 @@
 			isa = PBXGroup;
 			children = (
 				8430D0D822C93F0800318749 /* SMC.swift */,
-				8430D0E322C9469500318749 /* SMCStructure.swift */,
+				8481CDCC22DFCCFA00E4C087 /* SMC+Sensor.swift */,
 				8430D0E522C94A1100318749 /* SMC+Extensions.swift */,
+				8481CDC122DF72F700E4C087 /* SMC+CPU.swift */,
+				8481CDCA22DFC91600E4C087 /* SMC+GPU.swift */,
+				8481CDC322DF731500E4C087 /* SMC+Fans.swift */,
+				8430D0E322C9469500318749 /* SMCStructure.swift */,
+				8481CDC622DFBD6300E4C087 /* Device.swift */,
+				8481CDC822DFC8F000E4C087 /* Temperature.swift */,
 			);
 			path = SMC;
 			sourceTree = "<group>";
@@ -147,10 +169,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8481CDCB22DFC91600E4C087 /* SMC+GPU.swift in Sources */,
 				8430D0E422C9469500318749 /* SMCStructure.swift in Sources */,
 				8430D0E622C94A1100318749 /* SMC+Extensions.swift in Sources */,
+				8481CDCD22DFCCFA00E4C087 /* SMC+Sensor.swift in Sources */,
+				8481CDC922DFC8F000E4C087 /* Temperature.swift in Sources */,
 				8430D0E022C93F0800318749 /* AppDelegate.swift in Sources */,
 				8430D0DE22C93F0800318749 /* SMC.swift in Sources */,
+				8481CDC222DF72F700E4C087 /* SMC+CPU.swift in Sources */,
+				8481CDC722DFBD6300E4C087 /* Device.swift in Sources */,
+				8481CDC422DF731500E4C087 /* SMC+Fans.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,6 +324,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_BUNDLE_IDENTIFIER = com.danielstorm.smc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -315,6 +344,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_BUNDLE_IDENTIFIER = com.danielstorm.smc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

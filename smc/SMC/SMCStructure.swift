@@ -3,7 +3,7 @@
 //  smc
 //
 //  Created by Daniel Storm on 6/30/19.
-//  Copyright © 2019 Daniel Storm. All rights reserved.
+//  Copyright © 2019 Daniel Storm (github.com/DanielStormApps).
 //
 
 import Foundation
@@ -13,6 +13,16 @@ typealias SMCBytes = (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8,
     UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8,
     UInt8, UInt8, UInt8, UInt8,  UInt8, UInt8, UInt8, UInt8)
 
+/// Defined by AppleSMC.kext
+///
+/// This is the predefined struct that must be passed to communicate with the
+/// AppleSMC driver. While the driver is closed source, the definition of this
+/// struct happened to appear in the Apple PowerManagement project at around
+/// version 211, and soon after disappeared. It can be seen in the PrivateLib.c
+/// file under pmconfigd. Given that it is C code, this is the closest
+/// translation to Swift from a type perspective.
+///
+/// http://www.opensource.apple.com/source/PowerManagement/PowerManagement-211/
 struct SMCStructure {
     
     var key: UInt32 = 0

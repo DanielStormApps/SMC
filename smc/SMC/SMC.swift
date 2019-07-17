@@ -3,7 +3,7 @@
 //  smc
 //
 //  Created by Daniel Storm on 6/30/19.
-//  Copyright © 2019 Daniel Storm. All rights reserved.
+//  Copyright © 2019 Daniel Storm (github.com/DanielStormApps).
 //
 
 import Foundation
@@ -24,13 +24,6 @@ class SMC {
         let service = IOServiceGetMatchingService(kIOMasterPortDefault, IOServiceMatching("AppleSMC"))
         assert(IOServiceOpen(service, mach_task_self_, 0, &SMC.connection) == kIOReturnSuccess, "Unable to start SMC")
         IOObjectRelease(service)
-        
-        let numberOfFans = bytes(key: "FNum")!.0
-        print("numberOfFans: \(numberOfFans)")
-        
-        let cpuTemperature = bytes(key: "TC0P")!.0 & 0x7F
-        print("cpuTemperature: \(cpuTemperature)")
-        
     }
     
     private func closeConnection() {
@@ -38,14 +31,14 @@ class SMC {
     }
     
     // MARK: - SMC
-    func bytes(key: String) -> SMCBytes? {
+    public func bytes(key: String) -> SMCBytes? {
         guard let smcKey = key.smcKey() else { return nil }
         let outputDataSize = dataSize(smcKey: smcKey)
         let outputBytes = bytes(smcKey: smcKey, dataSize: outputDataSize)
         return outputBytes
     }
     
-    // MARK: - SMC Helpers
+    // MARK: - Helpers
     private func dataSize(smcKey: UInt32) -> IOByteCount {
         var inputStructure = SMCStructure()
         var outputStructure = SMCStructure()
@@ -92,4 +85,40 @@ class SMC {
         closeConnection()
     }
     
+}
+
+extension SMC {
+    
+    #if DEBUG
+    /// - Note: Only available in `DEBUG` environment.
+    func printSystemInformation() {
+        print("------------------")
+        print("System Information")
+        print("------------------")
+        
+        // Fans
+        print()
+        let fans = SMC.shared.fans()
+        for fan in fans {
+            print("Fan: \(fan)")
+        }
+        
+        // CPU
+        print()
+        let cpuTemperature = SMC.shared.cpuTemperature()
+        print("CPU C: \(String(describing: cpuTemperature?.celsius))")
+        print("CPU F: \(String(describing: cpuTemperature?.fahrenheit))")
+        print("CPU K: \(String(describing: cpuTemperature?.kelvin))")
+        
+        // GPU
+        print()
+        let gpuTemperature = SMC.shared.gpuTemperature()
+        print("GPU C: \(String(describing: gpuTemperature?.celsius))")
+        print("GPU F: \(String(describing: gpuTemperature?.fahrenheit))")
+        print("GPU K: \(String(describing: gpuTemperature?.kelvin))")
+        
+        print()
+        print("------------------")
+    }
+    #endif
 }
