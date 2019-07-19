@@ -1,8 +1,8 @@
 # SMC
-### Wrapper for macOS's System Management Controller (SMC) written in Swift.
+### Read-only wrapper for macOS's System Management Controller (SMC) written in Swift.
 
 #### License
-MIT license. See the LICENSE file for more information.
+MIT license. See [LICENSE](https://github.com/DanielStormApps/SMC/blob/master/LICENSE) file for more information.
 
 #### References
 - [SMCWrapper](https://github.com/FergusInLondon/SMCWrapper)

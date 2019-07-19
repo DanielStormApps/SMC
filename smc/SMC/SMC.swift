@@ -13,7 +13,7 @@ class SMC {
     
     private static var connection: io_connect_t = 0
     
-    // MARK: Init
+    // MARK: - Init
     static let shared = SMC()
     private init() {
         openConnection()
