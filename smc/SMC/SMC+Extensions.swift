@@ -10,7 +10,7 @@ import Foundation
 
 extension String {
     
-    func smcKey() -> UInt32? {
+    public func smcKey() -> UInt32? {
         guard self.count == 4 else { return nil }
         
         let value = self.utf8.reduce(0) { sumOfBits, character in

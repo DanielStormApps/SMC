@@ -8,7 +8,7 @@
 
 import Foundation
 
-typealias SMCBytes = (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8,
+public typealias SMCBytes = (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8,
     UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8,
     UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8,
     UInt8, UInt8, UInt8, UInt8,  UInt8, UInt8, UInt8, UInt8)
@@ -23,7 +23,7 @@ typealias SMCBytes = (UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8, UInt8,
 /// translation to Swift from a type perspective.
 ///
 /// http://www.opensource.apple.com/source/PowerManagement/PowerManagement-211/
-struct SMCStructure {
+public struct SMCStructure {
     
     var key: UInt32 = 0
     var vers = SMCVersion()

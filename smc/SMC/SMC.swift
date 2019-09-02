@@ -9,12 +9,12 @@
 import Foundation
 import IOKit
 
-class SMC {
+public class SMC {
     
     private static var connection: io_connect_t = 0
     
     // MARK: - Init
-    static let shared = SMC()
+    public static let shared = SMC()
     private init() {
         openConnection()
     }
@@ -91,7 +91,7 @@ extension SMC {
     
     #if DEBUG
     /// - Note: Only available in `DEBUG` environment.
-    func printSystemInformation() {
+    public func printSystemInformation() {
         print("------------------")
         print("System Information")
         print("------------------")

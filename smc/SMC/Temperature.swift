@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Temperature {
+public struct Temperature {
     
     let celsius: Double
     let fahrenheit: Double
