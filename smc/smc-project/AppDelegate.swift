@@ -17,8 +17,4 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         SMC.shared.printSystemInformation()
     }
 
-    func applicationWillTerminate(_ aNotification: Notification) {
-        //
-    }
-
 }

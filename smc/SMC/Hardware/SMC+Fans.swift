@@ -11,7 +11,7 @@ import Foundation
 extension SMC {
     
     // MARK: - Fans
-    struct Fan {
+    public struct Fan {
         let identifier: Int
         let currentRPM: Int?
         let minimumRPM: Int?

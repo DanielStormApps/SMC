@@ -8,7 +8,7 @@
 
 import Foundation
 
-typealias SensorKey = String
+public typealias SensorKey = String
 
 extension SMC {
 

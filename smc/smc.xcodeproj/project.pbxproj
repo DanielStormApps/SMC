@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		8430D0DD22C93F0800318749 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8430D0D722C93F0800318749 /* Assets.xcassets */; };
 		8430D0DE22C93F0800318749 /* SMC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8430D0D822C93F0800318749 /* SMC.swift */; };
-		8430D0DF22C93F0800318749 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8430D0D922C93F0800318749 /* MainMenu.xib */; };
 		8430D0E022C93F0800318749 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8430D0DB22C93F0800318749 /* AppDelegate.swift */; };
 		8430D0E422C9469500318749 /* SMCStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8430D0E322C9469500318749 /* SMCStructure.swift */; };
 		8430D0E622C94A1100318749 /* SMC+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8430D0E522C94A1100318749 /* SMC+Extensions.swift */; };
@@ -19,6 +18,8 @@
 		8481CDC922DFC8F000E4C087 /* Temperature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8481CDC822DFC8F000E4C087 /* Temperature.swift */; };
 		8481CDCB22DFC91600E4C087 /* SMC+GPU.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8481CDCA22DFC91600E4C087 /* SMC+GPU.swift */; };
 		8481CDCD22DFCCFA00E4C087 /* SMC+Sensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8481CDCC22DFCCFA00E4C087 /* SMC+Sensor.swift */; };
+		84C31CD6231D6EA500B8A9D5 /* SampleCode.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 84C31CD5231D6EA500B8A9D5 /* SampleCode.xcconfig */; };
+		84C31CDA231D74E800B8A9D5 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84C31CD8231D74E800B8A9D5 /* MainMenu.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,7 +27,6 @@
 		8430D0D622C93F0800318749 /* smc.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = smc.entitlements; sourceTree = "<group>"; };
 		8430D0D722C93F0800318749 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8430D0D822C93F0800318749 /* SMC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMC.swift; sourceTree = "<group>"; };
-		8430D0DA22C93F0800318749 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		8430D0DB22C93F0800318749 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8430D0DC22C93F0800318749 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8430D0E322C9469500318749 /* SMCStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMCStructure.swift; sourceTree = "<group>"; };
@@ -39,6 +39,8 @@
 		8481CDCC22DFCCFA00E4C087 /* SMC+Sensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SMC+Sensor.swift"; sourceTree = "<group>"; };
 		8481CDCE22DFD9BF00E4C087 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		8481CDCF22DFD9C700E4C087 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		84C31CD5231D6EA500B8A9D5 /* SampleCode.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = SampleCode.xcconfig; sourceTree = "<group>"; };
+		84C31CD9231D74E800B8A9D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,8 +76,9 @@
 		8430D0D522C93F0800318749 /* smc-project */ = {
 			isa = PBXGroup;
 			children = (
+				84C31CD4231D6E5A00B8A9D5 /* configuration */,
 				8430D0DB22C93F0800318749 /* AppDelegate.swift */,
-				8430D0D922C93F0800318749 /* MainMenu.xib */,
+				84C31CD8231D74E800B8A9D5 /* MainMenu.xib */,
 				8430D0D722C93F0800318749 /* Assets.xcassets */,
 				8430D0D622C93F0800318749 /* smc.entitlements */,
 				8430D0DC22C93F0800318749 /* Info.plist */,
@@ -89,14 +92,30 @@
 				8430D0D822C93F0800318749 /* SMC.swift */,
 				8481CDCC22DFCCFA00E4C087 /* SMC+Sensor.swift */,
 				8430D0E522C94A1100318749 /* SMC+Extensions.swift */,
-				8481CDC122DF72F700E4C087 /* SMC+CPU.swift */,
-				8481CDCA22DFC91600E4C087 /* SMC+GPU.swift */,
-				8481CDC322DF731500E4C087 /* SMC+Fans.swift */,
 				8430D0E322C9469500318749 /* SMCStructure.swift */,
 				8481CDC622DFBD6300E4C087 /* Device.swift */,
 				8481CDC822DFC8F000E4C087 /* Temperature.swift */,
+				84C31CD7231D736F00B8A9D5 /* Hardware */,
 			);
 			path = SMC;
+			sourceTree = "<group>";
+		};
+		84C31CD4231D6E5A00B8A9D5 /* configuration */ = {
+			isa = PBXGroup;
+			children = (
+				84C31CD5231D6EA500B8A9D5 /* SampleCode.xcconfig */,
+			);
+			path = configuration;
+			sourceTree = "<group>";
+		};
+		84C31CD7231D736F00B8A9D5 /* Hardware */ = {
+			isa = PBXGroup;
+			children = (
+				8481CDC122DF72F700E4C087 /* SMC+CPU.swift */,
+				8481CDCA22DFC91600E4C087 /* SMC+GPU.swift */,
+				8481CDC322DF731500E4C087 /* SMC+Fans.swift */,
+			);
+			path = Hardware;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -158,7 +177,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8430D0DD22C93F0800318749 /* Assets.xcassets in Resources */,
-				8430D0DF22C93F0800318749 /* MainMenu.xib in Resources */,
+				84C31CD6231D6EA500B8A9D5 /* SampleCode.xcconfig in Resources */,
+				84C31CDA231D74E800B8A9D5 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,10 +205,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		8430D0D922C93F0800318749 /* MainMenu.xib */ = {
+		84C31CD8231D74E800B8A9D5 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				8430D0DA22C93F0800318749 /* Base */,
+				84C31CD9231D74E800B8A9D5 /* Base */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -198,6 +218,7 @@
 /* Begin XCBuildConfiguration section */
 		8430D0CE22C93DF900318749 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 84C31CD5231D6EA500B8A9D5 /* SampleCode.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -259,6 +280,7 @@
 		};
 		8430D0CF22C93DF900318749 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 84C31CD5231D6EA500B8A9D5 /* SampleCode.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -313,9 +335,11 @@
 		};
 		8430D0D122C93DF900318749 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 84C31CD5231D6EA500B8A9D5 /* SampleCode.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "smc-project/smc.entitlements";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = E5BK5K7RRN;
@@ -325,17 +349,20 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				PRODUCT_BUNDLE_IDENTIFIER = com.danielstorm.smc;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.danielstorm.smc.${SAMPLE_CODE_DISAMBIGUATOR}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
 		8430D0D222C93DF900318749 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 84C31CD5231D6EA500B8A9D5 /* SampleCode.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "smc-project/smc.entitlements";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = E5BK5K7RRN;
@@ -345,8 +372,9 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				PRODUCT_BUNDLE_IDENTIFIER = com.danielstorm.smc;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.danielstorm.smc.${SAMPLE_CODE_DISAMBIGUATOR}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;

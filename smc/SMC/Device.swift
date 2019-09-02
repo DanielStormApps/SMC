@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Device {
+public struct Device {
     
     struct Controller {
         
