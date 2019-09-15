@@ -22,7 +22,7 @@ public struct Temperature {
         return celsius + 273.15
     }
     
-    func from(dictionary: [String: Any]) -> Temperature {
+    static func from(dictionary: [String: Any]) -> Temperature {
         return Temperature(celsius: dictionary["celsius"] as? Double ?? 0.0,
                            fahrenheit: dictionary["fahrenheit"] as? Double ?? 0.0,
                            kelvin: dictionary["kelvin"] as? Double ?? 0.0)

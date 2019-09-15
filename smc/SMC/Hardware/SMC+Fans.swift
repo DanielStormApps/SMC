@@ -18,7 +18,7 @@ extension SMC {
         let maximumRPM: Int?
         let targetRPM: Int?
         
-        func from(dictionary: [String: Any]) -> Fan {
+        static func from(dictionary: [String: Any]) -> Fan {
             return Fan(identifier: dictionary["identifier"] as? Int ?? 0,
                        currentRPM: dictionary["currentRPM"] as? Int,
                        minimumRPM: dictionary["minimumRPM"] as? Int,
