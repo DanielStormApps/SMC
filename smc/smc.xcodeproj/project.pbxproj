@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8410EFB2233698E00003F94C /* Fan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8410EFB1233698E00003F94C /* Fan.swift */; };
 		8430D0DD22C93F0800318749 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8430D0D722C93F0800318749 /* Assets.xcassets */; };
 		8430D0DE22C93F0800318749 /* SMC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8430D0D822C93F0800318749 /* SMC.swift */; };
 		8430D0E022C93F0800318749 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8430D0DB22C93F0800318749 /* AppDelegate.swift */; };
@@ -18,11 +19,11 @@
 		8481CDC922DFC8F000E4C087 /* Temperature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8481CDC822DFC8F000E4C087 /* Temperature.swift */; };
 		8481CDCB22DFC91600E4C087 /* SMC+GPU.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8481CDCA22DFC91600E4C087 /* SMC+GPU.swift */; };
 		8481CDCD22DFCCFA00E4C087 /* SMC+Sensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8481CDCC22DFCCFA00E4C087 /* SMC+Sensor.swift */; };
-		84C31CD6231D6EA500B8A9D5 /* SampleCode.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 84C31CD5231D6EA500B8A9D5 /* SampleCode.xcconfig */; };
 		84C31CDA231D74E800B8A9D5 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84C31CD8231D74E800B8A9D5 /* MainMenu.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8410EFB1233698E00003F94C /* Fan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fan.swift; sourceTree = "<group>"; };
 		8430D0C222C93DF900318749 /* smc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = smc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8430D0D622C93F0800318749 /* smc.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = smc.entitlements; sourceTree = "<group>"; };
 		8430D0D722C93F0800318749 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -95,6 +96,7 @@
 				8430D0E322C9469500318749 /* SMCStructure.swift */,
 				8481CDC622DFBD6300E4C087 /* Device.swift */,
 				8481CDC822DFC8F000E4C087 /* Temperature.swift */,
+				8410EFB1233698E00003F94C /* Fan.swift */,
 				84C31CD7231D736F00B8A9D5 /* Hardware */,
 			);
 			path = SMC;
@@ -145,7 +147,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1020;
-				LastUpgradeCheck = 1020;
+				LastUpgradeCheck = 1100;
 				ORGANIZATIONNAME = "Daniel Storm";
 				TargetAttributes = {
 					8430D0C122C93DF900318749 = {
@@ -177,7 +179,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8430D0DD22C93F0800318749 /* Assets.xcassets in Resources */,
-				84C31CD6231D6EA500B8A9D5 /* SampleCode.xcconfig in Resources */,
 				84C31CDA231D74E800B8A9D5 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -192,6 +193,7 @@
 				8481CDCB22DFC91600E4C087 /* SMC+GPU.swift in Sources */,
 				8430D0E422C9469500318749 /* SMCStructure.swift in Sources */,
 				8430D0E622C94A1100318749 /* SMC+Extensions.swift in Sources */,
+				8410EFB2233698E00003F94C /* Fan.swift in Sources */,
 				8481CDCD22DFCCFA00E4C087 /* SMC+Sensor.swift in Sources */,
 				8481CDC922DFC8F000E4C087 /* Temperature.swift in Sources */,
 				8430D0E022C93F0800318749 /* AppDelegate.swift in Sources */,
@@ -268,7 +270,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -324,7 +326,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -343,6 +345,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = E5BK5K7RRN;
+				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/smc-project/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -366,6 +369,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = E5BK5K7RRN;
+				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/smc-project/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
