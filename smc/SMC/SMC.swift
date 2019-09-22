@@ -22,7 +22,7 @@ public class SMC {
     // MARK: - Connection Lifecycle
     private func openConnection() {
         let service = IOServiceGetMatchingService(kIOMasterPortDefault, IOServiceMatching("AppleSMC"))
-        assert(IOServiceOpen(service, mach_task_self_, 0, &SMC.connection) == kIOReturnSuccess, "Unable to start SMC")
+        guard IOServiceOpen(service, mach_task_self_, 0, &SMC.connection) == kIOReturnSuccess else { fatalError("Unable to start SMC") }
         IOObjectRelease(service)
     }
     
