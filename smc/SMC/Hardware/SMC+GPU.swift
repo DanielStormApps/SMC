@@ -12,9 +12,9 @@ extension SMC {
     
     // MARK: - GPU
     public func gpuTemperature(key: SensorKey = Sensor.GPU.proximity) -> Temperature? {
-        guard let bytes = bytes(key: key) else { return nil }
+        guard let bytes: SMCBytes = bytes(key: key) else { return nil }
         
-        let celsius = Double(bytes.0 & 0x7F)
+        let celsius: Double = Double(bytes.0 & 0x7F)
         
         return Temperature(celsius: celsius,
                            fahrenheit: Temperature.fahrenheit(celsius: celsius),

@@ -74,4 +74,5 @@ public struct SMCStructure {
         var dataType: UInt32 = 0
         var dataAttributes: UInt8 = 0
     }
+    
 }
