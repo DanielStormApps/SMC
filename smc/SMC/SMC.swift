@@ -105,14 +105,14 @@ extension SMC {
         
         // CPU
         print()
-        let cpuTemperature: Temperature? = SMC.shared.cpuTemperature()
+        let cpuTemperature: Temperature? = SMC.shared.cpuTemperatureAverage()
         print("CPU C: \(String(describing: cpuTemperature?.celsius))")
         print("CPU F: \(String(describing: cpuTemperature?.fahrenheit))")
         print("CPU K: \(String(describing: cpuTemperature?.kelvin))")
         
         // GPU
         print()
-        let gpuTemperature: Temperature? = SMC.shared.gpuTemperature()
+        let gpuTemperature: Temperature? = SMC.shared.gpuTemperatureAverage()
         print("GPU C: \(String(describing: gpuTemperature?.celsius))")
         print("GPU F: \(String(describing: gpuTemperature?.fahrenheit))")
         print("GPU K: \(String(describing: gpuTemperature?.kelvin))")

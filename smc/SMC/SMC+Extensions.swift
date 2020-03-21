@@ -21,3 +21,11 @@ extension String {
     }
 
 }
+
+extension Collection where Element: Numeric {
+    
+    public var total: Element {
+        return reduce(0, +)
+    }
+    
+}
