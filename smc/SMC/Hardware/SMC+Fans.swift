@@ -12,14 +12,14 @@ extension SMC {
     
     // MARK: - Fans
     public func fans() -> [Fan] {
-        guard let numberOfFans = numberOfFans() else { return [] }
+        guard let numberOfFans: Int = numberOfFans() else { return [] }
         var fans: [Fan] = []
         for i in 0..<numberOfFans { fans.append(fan(at: i)) }
         return fans
     }
     
     public func numberOfFans() -> Int? {
-        guard let bytes = bytes(key: "FNum") else { return nil }
+        guard let bytes: SMCBytes = bytes(key: "FNum") else { return nil }
         return Int(bytes.0)
     }
     
@@ -32,22 +32,22 @@ extension SMC {
     }
     
     private func fanCurrentRPM(for identifier: Int) -> Int? {
-        guard let bytes = bytes(key: "F\(identifier)Ac") else { return nil }
+        guard let bytes: SMCBytes = bytes(key: "F\(identifier)Ac") else { return nil }
         return integer(for: bytes)
     }
     
     private func fanMinimumRPM(for identifier: Int) -> Int? {
-        guard let bytes = bytes(key: "F\(identifier)Mn") else { return nil }
+        guard let bytes: SMCBytes = bytes(key: "F\(identifier)Mn") else { return nil }
         return integer(for: bytes)
     }
     
     private func fanMaximumRPM(for identifier: Int) -> Int? {
-        guard let bytes = bytes(key: "F\(identifier)Mx") else { return nil }
+        guard let bytes: SMCBytes = bytes(key: "F\(identifier)Mx") else { return nil }
         return integer(for: bytes)
     }
     
     private func fanTargetRPM(for identifier: Int) -> Int? {
-        guard let bytes = bytes(key: "F\(identifier)Tg") else { return nil }
+        guard let bytes: SMCBytes = bytes(key: "F\(identifier)Tg") else { return nil }
         return integer(for: bytes)
     }
     

@@ -13,8 +13,8 @@ public struct Device {
     struct Controller {
         
         static let isT2: Bool = {
-            let system_profiler = Process()
-            let pipe = Pipe()
+            let system_profiler: Process = Process()
+            let pipe: Pipe = Pipe()
             
             system_profiler.launchPath = "/usr/sbin/system_profiler"
             system_profiler.arguments = ["SPiBridgeDataType"]
@@ -23,7 +23,7 @@ public struct Device {
             system_profiler.launch()
             system_profiler.waitUntilExit()
             
-            let data = pipe.fileHandleForReading.readDataToEndOfFile()
+            let data: Data = pipe.fileHandleForReading.readDataToEndOfFile()
             let output: String? = String(data: data, encoding: .utf8)
             return output?.contains("Apple T2 Security Chip") == true ? true : false
         }()

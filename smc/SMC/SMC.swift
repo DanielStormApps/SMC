@@ -14,14 +14,14 @@ public class SMC {
     private static var connection: io_connect_t = 0
     
     // MARK: - Init
-    public static let shared = SMC()
+    public static let shared: SMC = SMC()
     private init() {
         openConnection()
     }
     
     // MARK: - Connection Lifecycle
     private func openConnection() {
-        let service = IOServiceGetMatchingService(kIOMasterPortDefault, IOServiceMatching("AppleSMC"))
+        let service: io_service_t = IOServiceGetMatchingService(kIOMasterPortDefault, IOServiceMatching("AppleSMC"))
         guard IOServiceOpen(service, mach_task_self_, 0, &SMC.connection) == kIOReturnSuccess else { fatalError("Unable to start SMC") }
         IOObjectRelease(service)
     }
@@ -32,19 +32,19 @@ public class SMC {
     
     // MARK: - SMC
     public func bytes(key: String) -> SMCBytes? {
-        guard let smcKey = key.smcKey() else { return nil }
-        let outputDataSize = dataSize(smcKey: smcKey)
-        let outputBytes = bytes(smcKey: smcKey, dataSize: outputDataSize)
+        guard let smcKey: UInt32 = key.smcKey() else { return nil }
+        let outputDataSize: IOByteCount = dataSize(smcKey: smcKey)
+        let outputBytes: SMCBytes = bytes(smcKey: smcKey, dataSize: outputDataSize)
         return outputBytes
     }
     
     // MARK: - Helpers
     private func dataSize(smcKey: UInt32) -> IOByteCount {
-        var inputStructure = SMCStructure()
-        var outputStructure = SMCStructure()
+        var inputStructure: SMCStructure = SMCStructure()
+        var outputStructure: SMCStructure = SMCStructure()
         
-        let inputStructureSize = MemoryLayout<SMCStructure>.stride
-        var outputStructureSize = MemoryLayout<SMCStructure>.stride
+        let inputStructureSize: Int = MemoryLayout<SMCStructure>.stride
+        var outputStructureSize: Int = MemoryLayout<SMCStructure>.stride
         
         inputStructure.key = smcKey
         inputStructure.data8 = 9
@@ -60,11 +60,11 @@ public class SMC {
     }
     
     private func bytes(smcKey: UInt32, dataSize: UInt32) -> SMCBytes {
-        var inputStructure = SMCStructure()
-        var outputStructure = SMCStructure()
+        var inputStructure: SMCStructure = SMCStructure()
+        var outputStructure: SMCStructure = SMCStructure()
         
-        let inputStructureSize = MemoryLayout<SMCStructure>.stride
-        var outputStructureSize = MemoryLayout<SMCStructure>.stride
+        let inputStructureSize: Int = MemoryLayout<SMCStructure>.stride
+        var outputStructureSize: Int = MemoryLayout<SMCStructure>.stride
         
         inputStructure.key = smcKey
         inputStructure.keyInfo.dataSize = dataSize
@@ -98,21 +98,21 @@ extension SMC {
         
         // Fans
         print()
-        let fans = SMC.shared.fans()
+        let fans: [Fan] = SMC.shared.fans()
         for fan in fans {
             print("Fan: \(fan)")
         }
         
         // CPU
         print()
-        let cpuTemperature = SMC.shared.cpuTemperature()
+        let cpuTemperature: Temperature? = SMC.shared.cpuTemperatureAverage()
         print("CPU C: \(String(describing: cpuTemperature?.celsius))")
         print("CPU F: \(String(describing: cpuTemperature?.fahrenheit))")
         print("CPU K: \(String(describing: cpuTemperature?.kelvin))")
         
         // GPU
         print()
-        let gpuTemperature = SMC.shared.gpuTemperature()
+        let gpuTemperature: Temperature? = SMC.shared.gpuTemperatureAverage()
         print("GPU C: \(String(describing: gpuTemperature?.celsius))")
         print("GPU F: \(String(describing: gpuTemperature?.fahrenheit))")
         print("GPU K: \(String(describing: gpuTemperature?.kelvin))")
@@ -121,4 +121,5 @@ extension SMC {
         print("------------------")
     }
     #endif
+    
 }
