@@ -92,6 +92,7 @@ extension SMC {
     #if DEBUG
     /// - Note: Only available in `DEBUG` environment.
     public func printSystemInformation() {
+        print()
         print("------------------")
         print("System Information")
         print("------------------")
@@ -105,20 +106,23 @@ extension SMC {
         
         // CPU
         print()
-        let cpuTemperature: Temperature? = SMC.shared.cpuTemperatureAverage()
-        print("CPU C: \(String(describing: cpuTemperature?.celsius))")
-        print("CPU F: \(String(describing: cpuTemperature?.fahrenheit))")
-        print("CPU K: \(String(describing: cpuTemperature?.kelvin))")
+        print("CPU (°C)")
+        for sensor in Sensor.CPU.allCases {
+            let cpuTemperature: Temperature? = SMC.shared.cpuTemperature(sensor: sensor)
+            print("\(sensor.title) [\(sensor.key)]: \(cpuTemperature?.celsius ?? 0.0)")
+        }
         
         // GPU
         print()
-        let gpuTemperature: Temperature? = SMC.shared.gpuTemperatureAverage()
-        print("GPU C: \(String(describing: gpuTemperature?.celsius))")
-        print("GPU F: \(String(describing: gpuTemperature?.fahrenheit))")
-        print("GPU K: \(String(describing: gpuTemperature?.kelvin))")
+        print("GPU (°C)")
+        for sensor in Sensor.GPU.allCases {
+            let gpuTemperature: Temperature? = SMC.shared.gpuTemperature(sensor: sensor)
+            print("\(sensor.title) [\(sensor.key)]: \(gpuTemperature?.celsius ?? 0.0)")
+        }
         
         print()
         print("------------------")
+        print()
     }
     #endif
     

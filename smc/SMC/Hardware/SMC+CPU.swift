@@ -11,8 +11,8 @@ import Foundation
 extension SMC {
     
     // MARK: - CPU
-    public func cpuTemperature(key: SensorKey) -> Temperature? {
-        guard let bytes: SMCBytes = bytes(key: key) else { return nil }
+    public func cpuTemperature(sensor: Sensor.CPU) -> Temperature? {
+        guard let bytes: SMCBytes = bytes(key: sensor.key) else { return nil }
         
         let celsius: Double = Double(bytes.0 & 0x7F)
         
@@ -22,8 +22,8 @@ extension SMC {
     }
     
     public func cpuTemperatureAverage() -> Temperature? {
-        let celsiusTemperatures: [Double] = SMC.Sensor.CPU.all.compactMap({
-            guard let bytes: SMCBytes = bytes(key: $0) else { return nil }
+        let celsiusTemperatures: [Double] = Sensor.CPU.allCases.compactMap({
+            guard let bytes: SMCBytes = bytes(key: $0.key) else { return nil }
             let celsius: Double = Double(bytes.0 & 0x7F)
             return celsius > 1.0 ? celsius : nil
         })
