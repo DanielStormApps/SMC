@@ -25,7 +25,8 @@ public struct Device {
             
             let data: Data = pipe.fileHandleForReading.readDataToEndOfFile()
             let output: String? = String(data: data, encoding: .utf8)
-            return output?.contains("Apple T2 Security Chip") == true ? true : false
+            
+            return output?.contains("Apple T2 Security Chip")
         }()
         
     }
