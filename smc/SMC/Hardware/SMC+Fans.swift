@@ -19,8 +19,12 @@ extension SMC {
     }
     
     public func numberOfFans() -> Int? {
-        guard let bytes: SMCBytes = bytes(key: "FNum") else { return nil }
-        return Int(bytes.0)
+        guard
+            let count: Double = value(key: "FNum"),
+            count >= 0,
+            count <= 16
+            else { return nil }
+        return Int(count)
     }
     
     private func fan(at index: Int) -> Fan {
@@ -32,36 +36,29 @@ extension SMC {
     }
     
     private func fanCurrentRPM(for identifier: Int) -> Int? {
-        guard let bytes: SMCBytes = bytes(key: "F\(identifier)Ac") else { return nil }
-        return integer(for: bytes)
+        return rpm(key: "F\(identifier)Ac")
     }
     
     private func fanMinimumRPM(for identifier: Int) -> Int? {
-        guard let bytes: SMCBytes = bytes(key: "F\(identifier)Mn") else { return nil }
-        return integer(for: bytes)
+        return rpm(key: "F\(identifier)Mn")
     }
     
     private func fanMaximumRPM(for identifier: Int) -> Int? {
-        guard let bytes: SMCBytes = bytes(key: "F\(identifier)Mx") else { return nil }
-        return integer(for: bytes)
+        return rpm(key: "F\(identifier)Mx")
     }
     
     private func fanTargetRPM(for identifier: Int) -> Int? {
-        guard let bytes: SMCBytes = bytes(key: "F\(identifier)Tg") else { return nil }
-        return integer(for: bytes)
+        return rpm(key: "F\(identifier)Tg")
     }
     
     // MARK: - Helpers
-    private func integer(for bytes: SMCBytes) -> Int {
-        // Devices that have a T2 security chip use an FLT data type
-        if Device.Controller.isT2 {
-            var value: Float = 0.0
-            memcpy(&value, [bytes.0, bytes.1, bytes.2, bytes.3], 4)
-            return Int(value)
-        }
-        else {
-            return (Int(bytes.0) << 6) + (Int(bytes.1) >> 2)
-        }
+    private func rpm(key: String) -> Int? {
+        guard
+            let rpm: Double = value(key: key),
+            rpm >= 0,
+            rpm < 100_000
+            else { return nil }
+        return Int(rpm)
     }
     
 }

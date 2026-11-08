@@ -12,28 +12,34 @@ extension SMC {
     
     // MARK: - CPU
     public func cpuTemperature(sensor: Sensor.CPU) -> Temperature? {
-        guard let bytes: SMCBytes = bytes(key: sensor.key) else { return nil }
-        
-        let celsius: Double = Double(bytes.0 & 0x7F)
-        
-        return Temperature(celsius: celsius,
-                           fahrenheit: Temperature.fahrenheit(celsius: celsius),
-                           kelvin: Temperature.kelvin(celsius: celsius))
+        guard let celsius: Double = validCelsius(key: sensor.key) else { return nil }
+        return Temperature.from(celsius: celsius)
     }
     
     public func cpuTemperatureAverage() -> Temperature? {
-        let celsiusTemperatures: [Double] = Sensor.CPU.allCases.compactMap({
-            guard let bytes: SMCBytes = bytes(key: $0.key) else { return nil }
-            let celsius: Double = Double(bytes.0 & 0x7F)
-            return celsius > 1.0 ? celsius : nil
-        })
+        return averageTemperature(intelKeys: Sensor.CPU.allCases.map({ $0.key }), appleSiliconPrefixes: ["Tp", "Te"])
+    }
+    
+    // MARK: - Helpers
+    /// Apple silicon Macs have none of the Intel keys, so there the average uses every SMC key with one of the prefixes.
+    func averageTemperature(intelKeys: [SensorKey], appleSiliconPrefixes: [String]) -> Temperature? {
+        let sensorKeys: [SensorKey] = Device.Controller.isAppleSilicon
+            ? allKeys.filter({ key in appleSiliconPrefixes.contains(where: { prefix in key.hasPrefix(prefix) }) })
+            : intelKeys
+        let celsiusTemperatures: [Double] = sensorKeys.compactMap({ validCelsius(key: $0) })
         
         guard !celsiusTemperatures.isEmpty else { return nil }
-        let averageCelsius: Double = celsiusTemperatures.total / Double(celsiusTemperatures.count)
-        
-        return Temperature(celsius: averageCelsius,
-                           fahrenheit: Temperature.fahrenheit(celsius: averageCelsius),
-                           kelvin: Temperature.kelvin(celsius: averageCelsius))
+        return Temperature.from(celsius: celsiusTemperatures.total / Double(celsiusTemperatures.count))
+    }
+    
+    /// - Returns: `nil` for a missing key and for a value outside 1 to 150 °C.
+    func validCelsius(key: SensorKey) -> Double? {
+        guard
+            let celsius: Double = value(key: key),
+            celsius > 1.0,
+            celsius < 150.0
+            else { return nil }
+        return celsius
     }
     
 }
