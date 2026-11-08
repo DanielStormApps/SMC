@@ -70,7 +70,8 @@ public struct SMCStructure {
     }
     
     struct SMCKeyInfoData {
-        var dataSize: IOByteCount = 0
+        // IOByteCount is 64-bit on arm64, but the driver's field is 32-bit.
+        var dataSize: UInt32 = 0
         var dataType: UInt32 = 0
         var dataAttributes: UInt8 = 0
     }

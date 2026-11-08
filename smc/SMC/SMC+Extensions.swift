@@ -22,6 +22,16 @@ extension String {
 
 }
 
+extension UInt32 {
+    
+    /// The four-character name of an SMC key or data type, such as "F0Ac" or "flt ".
+    public func smcKeyString() -> String {
+        let characters: [UInt8] = [UInt8(self >> 24 & 0xFF), UInt8(self >> 16 & 0xFF), UInt8(self >> 8 & 0xFF), UInt8(self & 0xFF)]
+        return String(decoding: characters, as: UTF8.self)
+    }
+    
+}
+
 extension Collection where Element: Numeric {
     
     public var total: Element {
